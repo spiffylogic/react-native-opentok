@@ -3,8 +3,6 @@
 
 <a title="Join on Slack" href="https://slack.callstack.io/"><img src="https://slack.callstack.io/badge.svg" /></a>
 
-[![OpenTok](https://res.cloudinary.com/crunchbase-production/image/upload/v1397239567/b6e16559b20f878d11be8a66e92d9c00.png)](https://tokbox.com)
-
 **React Native OpenTok** is wrapper over native [TokBox OpenTok SDK](https://tokbox.com/developer/). The OpenTok platform, developed by TokBox, makes it easy to embed high-quality interactive video, voice, messaging, and screen sharing into web and mobile apps. OpenTok uses WebRTC for audio-video communications 👀🎧. For more info on how OpenTok works, check out [OpenTok Basics](https://tokbox.com/developer/guides/basics/).
 
 ## Requirements:
@@ -136,6 +134,11 @@ Constants for events thrown in app. Available values:
 - *ON_SESSION_DID_FAIL_WITH_ERROR*
 - *ON_SESSION_STREAM_CREATED*
 - *ON_SESSION_STREAM_DESTROYED*
+- *ERROR_NO_SCREEN_CAPTURE_VIEW*
+- *ON_ARCHIVE_STARTED_WITH_ID*
+- *ON_ARCHIVE_STOPPED_WITH_ID*
+- *ON_SESSION_DID_BEGIN_RECONNECTING*
+- *ON_SESSION_DID_RECONNECT*
 
 #### on(name: string, callback: Function)
 Event listener, for events listed above.
