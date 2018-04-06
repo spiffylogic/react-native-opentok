@@ -6,6 +6,7 @@
 // eslint-disable-next-line
 import type { ViewProps } from "ViewPropTypes";
 
+// is this not even used?
 export type MessageEvent = {|
   sessionId: string,
   type: string,

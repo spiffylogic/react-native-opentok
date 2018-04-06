@@ -35,6 +35,17 @@ RCT_EXPORT_METHOD(sendSignal:(NSString *)sessionId type:(NSString *)type data:(N
     }
 }
 
+RCT_EXPORT_METHOD(getConnection:(NSString *)sessionId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    OTSession *session = [[RNOpenTokSessionManager sessionManager] getSession:sessionId];
+    if (session && session.connection) {
+        NSString *connectionId = session.connection.connectionId;
+        NSArray *a = [NSArray arrayWithObject:connectionId];
+        resolve(a);
+    } else {
+        resolve(@NO);
+    }
+}
+
 # pragma mark - OTSession delegate callbacks
 
 - (void)sessionDidConnect:(OTSession*)session {

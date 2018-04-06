@@ -1,9 +1,11 @@
 package com.rnopentok;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.WritableMap;
 import com.opentok.android.Session;
 
 public class RNOpenTokModule extends ReactContextBaseJavaModule {
@@ -46,9 +48,17 @@ public class RNOpenTokModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void sendSignal(String sessionId, String type, String data, Promise promise) {
         Session session = RNOpenTokSessionManager.getSessionManager().getSession(sessionId);
-
         session.sendSignal(type, data);
         promise.resolve(Boolean.valueOf(true));
     }
 
+    @ReactMethod
+    public void getConnection(String sessionId, Promise promise) {
+        Session session = RNOpenTokSessionManager.getSessionManager().getSession(sessionId);
+        WritableMap map = Arguments.createMap();
+        if (session.getConnection() != null) {
+            map.putString("connectionId", session.getConnection().getConnectionId());
+        }
+        promise.resolve(map);
+    }
 }

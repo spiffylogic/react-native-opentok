@@ -100,6 +100,9 @@ export default {
   ): Promise<boolean | Error> =>
     NativeModules.RNOpenTok.sendSignal(sessionId, type, message),
 
+  getConnection: (sessionId: string): Promise<boolean | Error> =>
+    NativeModules.RNOpenTok.getConnection(sessionId),
+
   on: (name: OpenTokEvent, callback: RNOpenTokEventCallback): void => {
     if (listeners[name]) {
       listeners[name].remove();
