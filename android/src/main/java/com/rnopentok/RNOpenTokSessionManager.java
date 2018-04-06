@@ -103,6 +103,8 @@ public class RNOpenTokSessionManager implements Session.SessionListener, Session
         }
         WritableMap payload = Arguments.createMap();
         payload.putString("sessionId", session.getSessionId());
+        if (session.getConnection() != null)
+            payload.putString("connectionId", session.getConnection().getConnectionId());
 
         mContext
                 .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
